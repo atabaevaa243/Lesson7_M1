@@ -99,7 +99,8 @@ var countBoss = 0
 var countVoin = 0
 var countKoldun = 0
 var countMedik = 0
-var countZash = 0
+var countZashitnik = 0
+
 while xpBoss > 0 || xpArray [0] > 0 || xpArray [1] > 0 || xpArray [2] > 0 || xpArray [3] > 0 {
     
             if count % 2 == 0 && count != 0 && xpArray[0] > 0 {
@@ -152,10 +153,10 @@ while xpBoss > 0 || xpArray [0] > 0 || xpArray [1] > 0 || xpArray [2] > 0 || xpA
         xpBoss = xpBoss - damageArray[3]
         xpArray[3] = xpArray[3] - damageBoss
         print("\(charactersArray[3]) нанес \(damageArray[3]) урона Боссу. У героя \(charactersArray[3]) осталось \(xpArray[3]) XП")
-        countZash += 1
+        countZashitnik += 1
     }
     if xpArray[3] == 0 {
-        print("ЗАЩИТНИК УМЕР НА \(countZash) РАУНДЕ")
+        print("ЗАЩИТНИК УМЕР НА \(countZashitnik) РАУНДЕ")
         xpArray[3] = -1
     }
     
@@ -182,17 +183,9 @@ while xpBoss > 0 || xpArray [0] > 0 || xpArray [1] > 0 || xpArray [2] > 0 || xpA
         xpArray[3] = -1
     }
     
-    
         count += 1
 
 }
 
 print("КОЛИЧЕСТВО РАУНДОВ \(count - 1)")
 
-
-//массив(двухмерный) по 0 имена, 1 хп, 2 урон
-//цикл по 0 индексу
-//раунды отдельная перем, когда while прох +1
-
-
-//ЗАКОНЧИТЬ ВСЕ ДО СУББОТЫЫЫЫЫЫ!!!!!!!!!!!
