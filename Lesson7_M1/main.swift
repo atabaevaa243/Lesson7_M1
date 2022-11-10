@@ -160,7 +160,6 @@ while xpBoss > 0 || xpArray [0] > 0 || xpArray [1] > 0 || xpArray [2] > 0 || xpA
     }
     
     
-    
     if xpArray[0] == 0 && xpArray[1] == 0 && xpArray[2] == 0 && xpArray[3] == 0 {
         print("ЖИТЕЛИ УМЕРЛИ. БОСС ВЫИГРАЛ!")
         xpBoss = -1
@@ -169,7 +168,6 @@ while xpBoss > 0 || xpArray [0] > 0 || xpArray [1] > 0 || xpArray [2] > 0 || xpA
         xpArray[2] = -1
         xpArray[3] = -1
     }
-    
     
     
     if xpBoss > 0 {
@@ -189,7 +187,7 @@ while xpBoss > 0 || xpArray [0] > 0 || xpArray [1] > 0 || xpArray [2] > 0 || xpA
 
 }
 
-print("КОЛИЧЕСТВО РАУНДОВ \(count)")
+print("КОЛИЧЕСТВО РАУНДОВ \(count - 1)")
 
 
 //массив(двухмерный) по 0 имена, 1 хп, 2 урон
