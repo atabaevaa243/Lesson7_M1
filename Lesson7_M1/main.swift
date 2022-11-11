@@ -108,19 +108,16 @@ while xpBoss > 0 && xpArray[0] > 0 || xpBoss > 0 && xpArray[1] > 0 || xpBoss > 0
     if xpArray[2] > 0 {
         if count % 2 == 0 && count != 0   {
             xpArray[0] = xpArray[0] + 200
-            print("+200 ХП от медика")
         }
     }
     if xpArray[2] > 0 {
         if count % 2 == 0 && count != 0 && xpArray[1] > 0  {
             xpArray[1] = xpArray[1] + 200
-            print("+200 ХП от медика")
         }
     }
     if xpArray[2] > 0 {
         if count % 2 == 0 && count != 0 && xpArray[3] > 0  {
             xpArray[3] = xpArray[3] + 200
-            print("+200 ХП от медика")
         }
     }
     
