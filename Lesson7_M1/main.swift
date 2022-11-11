@@ -105,7 +105,6 @@ while xpBoss > 0 && xpArray[0] > 0 || xpBoss > 0 && xpArray[1] > 0 || xpBoss > 0
 
         }
     }
-    print(xpArray)
     
     if xpArray[2] > 0 {
         if count % 2 == 0 && count != 0   {
