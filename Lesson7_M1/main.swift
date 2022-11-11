@@ -37,7 +37,7 @@ import Foundation
 
 
 var charactersArray = ["Воин", "Колдун", "Медик", "Защитник"]
-var xpArray = [1000, 1000, 1000, 1500]
+var xpArray = [1000, 2000, 1000, 1500]
 var damageArray = [200, 300, 0, 100]
 
 var boss = "Boss"
@@ -98,12 +98,14 @@ while xpBoss > 0 && xpArray[0] > 0 || xpBoss > 0 && xpArray[1] > 0 || xpBoss > 0
                 print("Босс нанес \(damageBoss) урона герою \(hero). ХП героя \(hero) - \(xpHero)")
                 if xpHero == 0 {
                     print("\(hero) УМЕР")
+                    xpArray.remove(at: xpIndex)
                     xpArray.insert(-1, at: xpIndex)
                 }
             }
 
         }
     }
+    print(xpArray)
     
     if xpArray[2] > 0 {
         if count % 2 == 0 && count != 0   {
