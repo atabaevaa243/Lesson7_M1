@@ -98,8 +98,6 @@ while xpBoss > 0 && xpArray[0] > 0 || xpBoss > 0 && xpArray[1] > 0 || xpBoss > 0
                 print("Босс нанес \(damageBoss) урона герою \(hero). ХП героя \(hero) - \(xpHero)")
                 if xpHero == 0 {
                     print("\(hero) УМЕР")
-                    xpArray.remove(at: xpIndex)
-                    xpArray.insert(-1, at: xpIndex)
                 }
             }
 
