@@ -46,69 +46,86 @@ var damageBoss = 200
 
 
 var count = 0
+var heroIndex = 0
+var hero = ""
+var damageIndex = 0
+var damageHero = 0
+var xpIndex = 0
+var xpHero = 0
 
-//|| xpArray[0] > 0 || xpArray[1] > 0 || xpArray[2] > 0 || xpArray[3] > 0
-
-while xpBoss > 0 {
+while xpBoss > 0 && xpArray[0] > 0 || xpBoss > 0 && xpArray[1] > 0 || xpBoss > 0 && xpArray[2] > 0 || xpBoss > 0 && xpArray[3] > 0   {
     
-    if count % 2 == 0 && count != 0 && xpArray[0] > 0 {
-        xpArray[0] = xpArray[0] + 200
-    }
-    if count % 2 == 0 && count != 0 && xpArray[1] > 0 {
-        xpArray[1] = xpArray[1] + 200
-    }
-    if count % 2 == 0 && count != 0 && xpArray[3] > 0 {
-        xpArray[3] = xpArray[3] + 200
-    }
-
     count += 1
     print("\nРаунд \(count) \n")
     
     print("Игроки атакуют!\n")
     
-    var heroIndex = 0
-    var hero = ""
-    var damageIndex = 0
-    var damageHero = 0
-    var xpIndex = 0
-    var xpHero = 0
     
-    for (index,array) in charactersArray.enumerated(){
-        heroIndex = index
-        hero = array
-        for (index,array) in damageArray.enumerated(){
-            damageIndex = index
-            damageHero = array
-            if heroIndex == damageIndex && damageHero > 0 && xpBoss > 0 {
+    for (index,array) in xpArray.enumerated() {
+        xpIndex = index
+        xpHero = array
+        for (index,array) in charactersArray.enumerated(){
+            heroIndex = index
+            hero = array
+            for (index,array) in damageArray.enumerated(){
+                damageIndex = index
+                damageHero = array
+                if heroIndex == damageIndex && damageHero > 0 && xpBoss > 0 && xpIndex == heroIndex && xpHero > 0{
                     xpBoss = xpBoss - damageHero
                     print("\(hero) нанес \(damageHero) урона боссу. ХП босса - \(xpBoss)")
-            }
-            if xpBoss == 0 {
-                print ("Босс умер на \(count) раунде")
-                xpBoss = -1
+                }
+                if xpBoss == 0 {
+                    print ("Босс умер на \(count) раунде")
+                    xpBoss = -1
+                }
             }
         }
     }
+    if xpBoss > 0 {
+        print("\nБосс атакует!\n")
+    }
     
-    print("\nБосс атакует!\n")
-    
-    for (index,array) in charactersArray.enumerated(){
-        heroIndex = index
-        hero = array
-        for (index,array) in xpArray.enumerated(){
-            xpIndex = index
-            xpHero = array
-            if heroIndex == xpIndex && xpHero > 0 && xpBoss > 0{
+    for (index,array) in xpArray.enumerated(){
+        xpIndex = index
+        xpHero = array
+        for (index,array) in charactersArray.enumerated(){
+            heroIndex = index
+            hero = array
+            if heroIndex == xpIndex && xpHero > 0 && xpBoss > 0 {
                 xpHero = xpHero - damageBoss
-                print("Босс нанес \(damageBoss) урона \(hero). ХП героя \(hero) - \(xpHero)")
+                xpArray.remove(at: xpIndex)
+                xpArray.insert(xpHero, at: xpIndex)
+                print("Босс нанес \(damageBoss) урона герою \(hero). ХП героя \(hero) - \(xpHero)")
+                if xpHero == 0 {
+                    print("\(hero) УМЕР")
+                    xpArray.insert(-1, at: xpIndex)
+                }
             }
-            if xpHero == 0 {
-                print ("\(hero) умер на \(count) раунде")
-                xpHero = -1
-            }
+
         }
     }
+    
+    if xpArray[2] > 0 {
+        if count % 2 == 0 && count != 0   {
+            xpArray[0] = xpArray[0] + 200
+            print("+200 ХП от медика")
+        }
+    }
+    if xpArray[2] > 0 {
+        if count % 2 == 0 && count != 0 && xpArray[1] > 0  {
+            xpArray[1] = xpArray[1] + 200
+            print("+200 ХП от медика")
+        }
+    }
+    if xpArray[2] > 0 {
+        if count % 2 == 0 && count != 0 && xpArray[3] > 0  {
+            xpArray[3] = xpArray[3] + 200
+            print("+200 ХП от медика")
+        }
+    }
+    
 }
+
     if xpBoss > 0 {
         print("Босс победил, игроки мертвы")
     } else {
@@ -117,4 +134,3 @@ while xpBoss > 0 {
     print("\nПрошло всего \(count) раундов")
 
     
-
