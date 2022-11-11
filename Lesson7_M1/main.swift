@@ -37,7 +37,7 @@ import Foundation
 
 
 var charactersArray = ["Воин", "Колдун", "Медик", "Защитник"]
-var xpArray = [1000, 2000, 1000, 1500]
+var xpArray = [1000, 1000, 1000, 1500]
 var damageArray = [200, 300, 0, 100]
 
 var boss = "Boss"
